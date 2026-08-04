@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel — Knowledge World Online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.svg" alt="Knowledge World Online logo" class="brand-mark">
+      <span class="brand-text"><strong>Knowledge World Online</strong><span>Admin Panel</span></span>
+    </a>
+    <nav class="nav-links"></nav>
+    <div class="nav-actions">
+      <span class="nav-user-chip"><span class="avatar">AD</span> Admin</span>
+    </div>
+  </div>
+</header>
+
+<div id="gateWrap">
+  <div class="login-gate" style="display:none" id="loginGate">
+    <div class="u-icon">🔒</div>
+    <h2>Admin login required</h2>
+    <p>Please login with your staff credentials to view the admin panel.</p>
+    <a href="admin-login.html" class="btn btn-navy">Go to admin login</a>
+  </div>
+</div>
+
+<div class="app-shell" id="dashShell" style="display:none">
+  <aside class="app-side">
+    <div class="side-user">
+      <span class="avatar">AD</span>
+      <div><strong>Admin</strong><span>Knowledge World Online</span></div>
+    </div>
+    <a href="#requests" class="side-link active" data-tab="requests">🖨 Print / Xerox &amp; requests</a>
+    <a href="#customers" class="side-link" data-tab="customers">👥 Registered customers</a>
+    <a href="#" class="side-link logout" id="adminLogoutBtn">↩ Logout</a>
+  </aside>
+
+  <main class="app-main">
+    <div class="app-header">
+      <div>
+        <h1>Admin overview</h1>
+        <p>All customer registrations and service requests received by Knowledge World Online.</p>
+      </div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-card"><span>Registered customers</span><strong id="aStUsers">0</strong></div>
+      <div class="stat-card accent"><span>Pending requests</span><strong id="aStPending">0</strong></div>
+      <div class="stat-card"><span>Ready for pickup</span><strong id="aStReady">0</strong></div>
+      <div class="stat-card"><span>Total requests</span><strong id="aStTotal">0</strong></div>
+    </div>
+
+    <section id="tab-requests">
+      <div class="panel">
+        <div class="panel-head">
+          <h3>Print / Xerox &amp; service requests</h3>
+          <div style="display:flex; gap:10px; flex-wrap:wrap">
+            <select class="select-status" id="statusFilter">
+              <option value="All">All statuses</option>
+              <option>Pending</option>
+              <option>In Progress</option>
+              <option>Ready</option>
+              <option>Collected</option>
+              <option>Cancelled</option>
+            </select>
+            <input type="text" id="searchReq" placeholder="Search name, mobile or token…" style="padding:8px 12px;border-radius:8px;border:1px solid var(--line);font-size:13px;min-width:220px">
+          </div>
+        </div>
+        <div id="reqTableWrap"></div>
+      </div>
+    </section>
+
+    <section id="tab-customers" style="display:none">
+      <div class="panel">
+        <div class="panel-head">
+          <h3>Registered customers</h3>
+          <input type="text" id="searchUser" placeholder="Search name or mobile…" style="padding:8px 12px;border-radius:8px;border:1px solid var(--line);font-size:13px;min-width:220px">
+        </div>
+        <div id="userTableWrap"></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

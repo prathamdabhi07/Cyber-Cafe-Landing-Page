@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knowledge World Online — Digital Seva Kendra, Palitana | CSC</title>
+<meta name="description" content="Knowledge World Online is a Common Service Center (CSC) in Palitana, Gujarat offering Aadhaar, PAN, certificates, bill payments and print/xerox services.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="nav">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.svg" alt="Knowledge World Online logo" class="brand-mark">
+      <span class="brand-text">
+        <strong>Knowledge World Online</strong>
+        <span>CSC · Palitana, Gujarat</span>
+      </span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#print">Print &amp; Xerox</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <span data-nav-auth-slot></span>
+      <a href="login.html" class="btn btn-ghost btn-sm" data-hide-if-logged-in>Login</a>
+      <a href="register.html" class="btn btn-primary btn-sm" data-hide-if-logged-in>Register</a>
+      <button class="nav-toggle btn-ghost btn-sm" aria-label="Toggle menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-copy">
+      <span class="eyebrow">Digital Seva Kendra · CSC Registered</span>
+      <h1>One counter for every<br><em>government &amp; digital</em> service.</h1>
+      <p class="lead">From Aadhaar and PAN to bill payments, certificates and same-day print &amp; xerox — Knowledge World Online handles it all under one roof in Palitana, Gujarat.</p>
+      <div class="hero-actions">
+        <a href="#print" class="btn btn-primary">Submit Print / Xerox File</a>
+        <a href="#services" class="btn btn-ghost">Browse 30+ Services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong id="statUsers">0</strong><span>Registered customers</span></div>
+        <div class="hero-stat"><strong id="statRequests">0</strong><span>Requests served</span></div>
+        <div class="hero-stat"><strong>30+</strong><span>Services on counter</span></div>
+      </div>
+    </div>
+
+    <div class="token-machine" aria-hidden="true">
+      <div class="token-screen">
+        <div>
+          <div class="label">Now printing token</div>
+          <div class="value" id="heroTokenNum">KWO-2026-0001</div>
+        </div>
+        <div class="now-serving">
+          <div class="label">Counter</div>
+          <div class="value" style="font-size:20px">01</div>
+        </div>
+      </div>
+      <div class="slit"></div>
+      <div class="token-slot">
+        <div class="token-slip">
+          <div class="t-head">Knowledge World Online</div>
+          <div class="t-num">Token #0247</div>
+          <div class="t-service">Print &amp; Xerox — 4 pages, Colour</div>
+          <div class="t-dash"></div>
+          <div class="t-foot">Please collect from Counter 1 · Thank you</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span><b>Aadhaar</b> Update</span>
+    <span><b>PAN Card</b> Apply</span>
+    <span><b>Voter ID</b> Registration</span>
+    <span><b>Passport</b> Assistance</span>
+    <span><b>Bill</b> Payments</span>
+    <span><b>Print &amp; Xerox</b> Same-Day</span>
+    <span><b>Certificates</b> &amp; Forms</span>
+    <span><b>GST / MSME</b> Registration</span>
+    <span><b>Aadhaar</b> Update</span>
+    <span><b>PAN Card</b> Apply</span>
+    <span><b>Voter ID</b> Registration</span>
+    <span><b>Passport</b> Assistance</span>
+    <span><b>Bill</b> Payments</span>
+    <span><b>Print &amp; Xerox</b> Same-Day</span>
+    <span><b>Certificates</b> &amp; Forms</span>
+    <span><b>GST / MSME</b> Registration</span>
+  </div>
+</div>
+
+<!-- QUICK PRINT / XEROX -->
+<section class="section" id="print">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Fastest counter</span>
+      <h2>Send your file for print or xerox</h2>
+      <p>Upload a PDF or photo (JPG/PNG), add your name and mobile number, and collect a printed token number. No login required.</p>
+    </div>
+
+    <div class="quick-print reveal">
+      <div class="quick-print-side">
+        <span class="eyebrow">Walk-in not required</span>
+        <h3>Skip the queue —<br>we prepare it before you arrive</h3>
+        <p>Submit your file from home or on the way. Our counter prints, copies or laminates it and holds a token for pickup.</p>
+        <ul>
+          <li>Black &amp; white or colour printing</li>
+          <li>Photocopy, scanning &amp; lamination</li>
+          <li>Spiral &amp; staple binding available</li>
+          <li>Get a token number instantly on submission</li>
+        </ul>
+      </div>
+
+      <form class="quick-print-form" id="quickPrintForm">
+        <div class="field-row">
+          <div class="field">
+            <label for="qpName">Full name</label>
+            <input type="text" id="qpName" name="name" placeholder="e.g. Kiran Patel" required>
+          </div>
+          <div class="field">
+            <label for="qpMobile">Mobile number</label>
+            <input type="tel" id="qpMobile" name="mobile" placeholder="10-digit mobile number" maxlength="10" required>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="qpType">Print type</label>
+            <select id="qpType" name="printType">
+              <option value="Black & White">Black &amp; white</option>
+              <option value="Colour">Colour</option>
+              <option value="Photocopy">Photocopy only</option>
+              <option value="Lamination">Lamination</option>
+              <option value="Spiral Binding">Spiral binding</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="qpCopies">Copies <span class="hint">per file</span></label>
+            <input type="text" id="qpCopies" name="copies" placeholder="e.g. 2" inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Upload file <span class="hint">PDF, JPG or PNG · up to 15 MB each</span></label>
+          <div class="upload-drop" id="qpDrop">
+            <input type="file" id="qpFile" accept=".pdf,.jpg,.jpeg,.png" multiple>
+            <div class="u-icon">↑</div>
+            <strong>Click to browse or drop file here</strong>
+            <span>PDF, JPG, PNG accepted</span>
+          </div>
+          <div class="upload-filelist" id="qpFileList"></div>
+        </div>
+
+        <div class="field">
+          <label for="qpNotes">Notes <span class="hint">optional</span></label>
+          <textarea id="qpNotes" name="notes" rows="2" placeholder="e.g. print both sides, staple top-left"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Submit print request</button>
+        <div class="form-msg" id="qpMsg"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section section-alt" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span id="serviceCount">30+</span> Services</span>
+      <h2>Every government counter, in one place</h2>
+      <p>Filter by category to find the service you need — identity documents, certificates, bill payments, business registration and office support.</p>
+    </div>
+    <div class="services-toolbar" id="serviceFilters"></div>
+    <div class="services-grid" id="serviceGrid"></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section section-navy">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">How it works</span>
+      <h2>Four steps from request to token</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="num"></div>
+        <h4>Choose a service</h4>
+        <p>Pick from 30+ services or upload a file directly for print &amp; xerox.</p>
+        <div class="step-line"></div>
+      </div>
+      <div class="step reveal">
+        <div class="num"></div>
+        <h4>Share your details</h4>
+        <p>Add your name and mobile number — register once to track every visit.</p>
+        <div class="step-line"></div>
+      </div>
+      <div class="step reveal">
+        <div class="num"></div>
+        <h4>Receive a token</h4>
+        <p>Get an instant token number confirming your request is in queue.</p>
+        <div class="step-line"></div>
+      </div>
+      <div class="step reveal">
+        <div class="num"></div>
+        <h4>Collect at the counter</h4>
+        <p>Walk in with your token, or track status live from your dashboard.</p>
+        <div class="step-line"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / TRUST -->
+<section class="section" id="about">
+  <div class="container split">
+    <div class="reveal">
+      <span class="eyebrow">About the centre</span>
+      <h2 style="margin-top:10px; font-size: clamp(26px,3vw,36px)">A Common Service Centre built for Palitana</h2>
+      <p style="margin-top:16px; color:var(--ink-soft); font-size:15.5px">Knowledge World Online is a locally run Digital Seva Kendra offering government-to-citizen (G2C) services, financial inclusion services and everyday office support — Aadhaar, PAN, certificates, bill payments and same-day printing — under a single, trusted counter.</p>
+      <p style="margin-top:12px; color:var(--ink-soft); font-size:15.5px">Every request, from a certificate application to a print job, is logged with a token number so you always know where things stand.</p>
+      <div class="hero-actions" style="margin-top:26px">
+        <a href="register.html" class="btn btn-navy">Create your account</a>
+      </div>
+    </div>
+    <div class="trust-grid reveal">
+      <div class="trust-card"><strong>30+</strong><span>Government &amp; digital services</span></div>
+      <div class="trust-card"><strong>Same-day</strong><span>Print, xerox &amp; lamination</span></div>
+      <div class="trust-card"><strong>Token-based</strong><span>Transparent request tracking</span></div>
+      <div class="trust-card"><strong>Local</strong><span>Serving Palitana &amp; nearby villages</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section section-alt" id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Visit or call</span>
+      <h2>Reach the counter</h2>
+    </div>
+    <div class="trust-grid reveal" style="grid-template-columns:repeat(3,1fr)">
+      <div class="trust-card"><strong>📍</strong><span> Shop No 67 Maharvir Shopping Center Behind Jagruti Hotel Near Patanjali Medical Store Palitana</span></div>
+      <div class="trust-card"><strong>📞</strong><span>Mo:-9313800318/9016711865 
+                             (Mon–Sat, 10:00 AM – 6:00 PM)</span></div>
+      <div class="trust-card"><strong>✉️</strong><span>knowledgeonlinee.@gmail.com</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <a href="index.html" class="brand" style="margin-bottom:14px">
+        <img src="assets/logo.svg" alt="Knowledge World Online logo" class="brand-mark">
+        <span class="brand-text"><strong style="color:#fff">Knowledge World Online</strong><span>CSC · Palitana, Gujarat</span></span>
+      </a>
+      <p style="font-size:13.5px; color:#9AA3BE; max-width:280px">A local Common Service Centre for government, financial and office support services.</p>
+    </div>
+    <div>
+      <h5>Explore</h5>
+      <ul>
+        <li><a href="index.html#services">All services</a></li>
+        <li><a href="index.html#print">Print &amp; Xerox</a></li>
+        <li><a href="index.html#about">About centre</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Account</h5>
+      <ul>
+        <li><a href="register.html">Create account</a></li>
+        <li><a href="login.html">Customer login</a></li>
+        <li><a href="dashboard.html">My dashboard</a></li>
+        <li><a href="admin-login.html">Admin login</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Timing</h5>
+      <ul>
+        <li>Mon – Sat: 9:30 AM – 8:00 PM</li>
+        <li>Sunday: 10:00 AM – 2:00 PM</li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span id="year"></span> Knowledge World Online. All rights reserved.</span>
+    <span>Palitana, Gujarat, India</span>
+  </div>
+</footer>
+
+<!-- SERVICE REQUEST MODAL -->
+<div class="modal-overlay" id="svcModalOverlay">
+  <div class="modal-box" id="svcModalBox">
+    <!-- form view -->
+    <div id="svcModalForm">
+      <div class="modal-head">
+        <div>
+          <span class="m-token" id="svcModalCat">Category</span>
+          <h3 id="svcModalTitle">Service name</h3>
+          <p id="svcModalDesc">Service description</p>
+        </div>
+        <button type="button" class="modal-close" id="svcModalClose" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="serviceRequestForm">
+          <div class="field-row">
+            <div class="field">
+              <label for="srName">Full name</label>
+              <input type="text" id="srName" name="name" placeholder="e.g. Kiran Patel" required>
+            </div>
+            <div class="field">
+              <label for="srMobile">Mobile number</label>
+              <input type="tel" id="srMobile" name="mobile" placeholder="10-digit mobile number" maxlength="10" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="srNotes">Details / notes <span class="hint">what do you need help with?</span></label>
+            <textarea id="srNotes" name="notes" rows="3" placeholder="e.g. new Aadhaar enrolment for my mother, please call before visiting"></textarea>
+          </div>
+          <div class="field">
+            <label>Supporting document <span class="hint">optional · PDF, JPG or PNG</span></label>
+            <div class="upload-drop" id="srDrop">
+              <input type="file" id="srFile" accept=".pdf,.jpg,.jpeg,.png" multiple>
+              <div class="u-icon">↑</div>
+              <strong>Click to browse or drop file here</strong>
+              <span>Aadhaar copy, photo, existing certificate, etc.</span>
+            </div>
+            <div class="upload-filelist" id="srFileList"></div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Submit request &amp; get token</button>
+          <div class="form-msg" id="srMsg"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/home.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  // hide login/register buttons if already logged in
+  document.addEventListener("DOMContentLoaded", ()=>{
+    if (KWO.currentUser()){
+      document.querySelectorAll("[data-hide-if-logged-in]").forEach(el=> el.style.display="none");
+    }
+  });
+</script>
+</body>
+</html>

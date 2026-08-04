@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Account — Knowledge World Online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.svg" alt="Knowledge World Online logo" class="brand-mark">
+      <span class="brand-text"><strong>Knowledge World Online</strong><span>CSC · Palitana, Gujarat</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#print">Print &amp; Xerox</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <span data-nav-auth-slot></span>
+      <a href="login.html" class="btn btn-ghost btn-sm">Login</a>
+    </div>
+  </div>
+</header>
+
+<div class="auth-wrap">
+  <div class="auth-visual">
+    <div>
+      <span class="eyebrow">Join the counter</span>
+      <h2>One account, every service, one token history.</h2>
+      <p>Registering takes under a minute and lets our counter staff pull up your details instantly on your next visit.</p>
+    </div>
+    <div class="quote">“Your mobile number is your customer ID — keep it handy at the counter.”<br>— Counter Desk, Knowledge World Online</div>
+  </div>
+
+  <div class="auth-form-side">
+    <div class="auth-box">
+      <a href="index.html" class="top-link">← Back to home</a>
+      <h1>Create your account</h1>
+      <p class="sub">Register once to track requests and skip re-entering details.</p>
+
+      <form id="registerForm">
+        <div class="field">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" placeholder="e.g. Kiran Patel" required>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="mobile">Mobile number</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="10-digit number" maxlength="10" required>
+          </div>
+          <div class="field">
+            <label for="email">Email <span class="hint">optional</span></label>
+            <input type="email" id="email" name="email" placeholder="you@example.com">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Minimum 6 characters" required>
+          </div>
+          <div class="field">
+            <label for="confirm">Confirm password</label>
+            <input type="password" id="confirm" name="confirm" placeholder="Re-enter password" required>
+          </div>
+        </div>
+        <label class="checkbox-row">
+          <input type="checkbox" required>
+          <span>I agree that my details will be used by Knowledge World Online to process my service requests.</span>
+        </label>
+        <button type="submit" class="btn btn-primary btn-block">Create account</button>
+        <div class="form-msg" id="registerMsg"></div>
+      </form>
+
+      <div class="auth-switch">Already registered? <a href="login.html">Login here</a></div>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

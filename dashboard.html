@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Dashboard — Knowledge World Online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.svg" alt="Knowledge World Online logo" class="brand-mark">
+      <span class="brand-text"><strong>Knowledge World Online</strong><span>CSC · Palitana, Gujarat</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+    </nav>
+    <div class="nav-actions">
+      <span data-nav-auth-slot></span>
+    </div>
+  </div>
+</header>
+
+<div id="gateWrap">
+  <div class="login-gate" style="display:none" id="loginGate">
+    <div class="u-icon">🔒</div>
+    <h2>Please login to continue</h2>
+    <p>You need a customer account to view your dashboard and request history.</p>
+    <a href="login.html" class="btn btn-primary">Go to login</a>
+  </div>
+</div>
+
+<div class="app-shell" id="dashShell" style="display:none">
+  <aside class="app-side">
+    <div class="side-user">
+      <span class="avatar" id="sideAvatar">--</span>
+      <div>
+        <strong id="sideName">—</strong>
+        <span id="sideMobile">—</span>
+      </div>
+    </div>
+    <a href="#" class="side-link active">📄 My requests</a>
+    <a href="index.html#print" class="side-link">＋ New print / xerox</a>
+    <a href="index.html#services" class="side-link">🗂 Browse services</a>
+    <a href="#" class="side-link logout" id="logoutBtn">↩ Logout</a>
+  </aside>
+
+  <main class="app-main">
+    <div class="app-header">
+      <div>
+        <h1>Welcome back, <span id="welcomeName">—</span></h1>
+        <p>Here's a summary of your service requests and print jobs.</p>
+      </div>
+      <a href="index.html#print" class="btn btn-primary btn-sm">＋ New print / xerox request</a>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-card"><span>Total requests</span><strong id="stTotal">0</strong></div>
+      <div class="stat-card accent"><span>Pending</span><strong id="stPending">0</strong></div>
+      <div class="stat-card"><span>Ready for pickup</span><strong id="stReady">0</strong></div>
+      <div class="stat-card"><span>Collected</span><strong id="stDone">0</strong></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <h3>My request history</h3>
+      </div>
+      <div id="reqTableWrap"></div>
+    </div>
+  </main>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
