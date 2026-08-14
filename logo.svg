@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Knowledge World Online logo">
+  <defs>
+    <linearGradient id="kwoBg" x1="15%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#14213D"/>
+      <stop offset="100%" stop-color="#0A1226"/>
+    </linearGradient>
+  </defs>
+
+  <!-- badge -->
+  <rect x="4" y="4" width="120" height="120" rx="30" fill="url(#kwoBg)"/>
+  <rect x="4" y="4" width="120" height="120" rx="30" fill="none" stroke="#EE8A2B" stroke-opacity="0.18" stroke-width="2"/>
+
+  <!-- monogram -->
+  <text x="62" y="78" text-anchor="middle"
+        font-family="Poppins, Arial, sans-serif" font-weight="800" font-size="52"
+        fill="#EE8A2B" letter-spacing="-2">KW</text>
+
+  <!-- token-dot accent: echoes the site's token/counter motif -->
+  <circle cx="100" cy="100" r="16" fill="#0E7C6B" stroke="#FAF6EC" stroke-width="4"/>
+  <circle cx="100" cy="100" r="5" fill="#FAF6EC"/>
+</svg>

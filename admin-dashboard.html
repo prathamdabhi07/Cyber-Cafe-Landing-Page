@@ -41,6 +41,8 @@
     </div>
     <a href="#requests" class="side-link active" data-tab="requests">🖨 Print / Xerox &amp; requests</a>
     <a href="#customers" class="side-link" data-tab="customers">👥 Registered customers</a>
+    <a href="#site-editor" class="side-link" data-tab="site-editor">🛠 Services &amp; Forms</a>
+    <a href="#tools-editor" class="side-link" data-tab="tools-editor">🔗 Tools / Links</a>
     <a href="#" class="side-link logout" id="adminLogoutBtn">↩ Logout</a>
   </aside>
 
@@ -88,10 +90,119 @@
         <div id="userTableWrap"></div>
       </div>
     </section>
+    <section id="tab-site-editor" style="display:none">
+      <div class="panel">
+        <div class="panel-head">
+          <div><h3>Services</h3><p style="margin:4px 0;color:var(--ink-soft);font-size:13px">Homepage par dikhne wali sabhi services yahan se professionally add, edit ya remove karo — naam, category, description, form fields aur upload documents sab kuch.</p></div>
+          <button class="btn btn-primary" id="addServiceBtn">+ Add service</button>
+        </div>
+        <div class="mgr-toolbar">
+          <input type="text" id="svcSearch" placeholder="Search services…">
+          <select id="svcCatFilter"><option value="">All categories</option></select>
+          <select id="svcStatusFilter">
+            <option value="">All status</option>
+            <option value="active">Active only</option>
+            <option value="removed">Removed only</option>
+          </select>
+          <span class="mgr-count" id="svcCount"></span>
+        </div>
+        <div id="serviceManagerWrap" class="mgr-grid"></div>
+      </div>
+    </section>
+
+    <section id="tab-tools-editor" style="display:none">
+      <div class="panel">
+        <div class="panel-head">
+          <div><h3>Tools &amp; links</h3><p style="margin:4px 0;color:var(--ink-soft);font-size:13px">Homepage ke "Digital tools" section me dikhne wale links (jaise PDF Tools) — jitne chaho utne add karo, edit karo, on/off karo ya delete karo.</p></div>
+          <button class="btn btn-primary" id="addToolBtn">+ Add link</button>
+        </div>
+        <div class="mgr-toolbar">
+          <span class="mgr-count" id="toolCount"></span>
+        </div>
+        <div id="toolsManagerWrap" class="mgr-grid"></div>
+      </div>
+      <div class="panel" style="margin-top:18px">
+        <div class="panel-head"><div><h3>Footer navigation links</h3><p style="margin:4px 0;color:var(--ink-soft);font-size:13px">Website footer me dikhne wale menu links ke label/URL edit karo.</p></div></div>
+        <div id="footerLinksManager"></div>
+      </div>
+      <div class="panel" style="margin-top:18px">
+        <button class="btn btn-primary" id="saveAllSiteChanges">Save &amp; publish changes</button>
+        <button class="btn btn-ghost" id="resetAllSiteChanges" style="margin-left:8px">Reset to default</button>
+        <div class="form-msg" id="siteEditorMsg"></div>
+      </div>
+    </section>
   </main>
 </div>
 
+<!-- SERVICE ADD/EDIT MODAL -->
+<div class="modal-overlay" id="svcEditModalOverlay">
+  <div class="modal-box modal-box-lg">
+    <div class="modal-head">
+      <div><span class="m-token" id="svcEditModalTag">Service</span><h3 id="svcEditModalTitle">Add / edit service</h3></div>
+      <button type="button" class="modal-close" id="svcEditModalClose" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="mform-grid2">
+        <label class="mform-field">Service name<input type="text" id="se-name" placeholder="e.g. Aadhaar Enrolment &amp; Update"></label>
+        <label class="mform-field">Category<input type="text" id="se-cat" placeholder="e.g. Government IDs"></label>
+      </div>
+      <label class="mform-field">Description<textarea id="se-desc" rows="2" placeholder="Short description shown on the service card"></textarea></label>
+      <div class="mform-grid2">
+        <div class="mform-field">Card colour
+          <div class="mform-colors" id="se-color-picker">
+            <div class="mform-color-opt" data-color="navy" style="background:var(--navy)"></div>
+            <div class="mform-color-opt" data-color="saffron" style="background:var(--saffron)"></div>
+            <div class="mform-color-opt" data-color="teal" style="background:var(--teal)"></div>
+          </div>
+        </div>
+        <label class="mform-field"><span class="toggle-switch" style="margin-top:6px"><input type="checkbox" id="se-enabled" checked><span class="track"></span> Show on homepage</span></label>
+      </div>
+
+      <div class="mform-subhead"><h4>Form fields (what the customer fills)</h4><button type="button" class="btn btn-ghost" id="addFieldBtn">+ Add field</button></div>
+      <div id="fieldRows"></div>
+      <div class="dyn-empty" id="fieldRowsEmpty" style="display:none">Koi field nahi. "+ Add field" dabao.</div>
+
+      <div class="mform-subhead"><h4>Documents / uploads required</h4><button type="button" class="btn btn-ghost" id="addDocBtn">+ Add document</button></div>
+      <div id="docRows"></div>
+      <div class="dyn-empty" id="docRowsEmpty" style="display:none">Koi document upload nahi. "+ Add document" dabao.</div>
+
+      <button type="button" class="btn btn-primary btn-block" id="applySvcBtn" style="margin-top:18px">Save service</button>
+      <div class="form-msg" id="svcEditMsg"></div>
+    </div>
+  </div>
+</div>
+
+<!-- LINK ADD/EDIT MODAL -->
+<div class="modal-overlay" id="linkEditModalOverlay">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div><span class="m-token">Tool / link</span><h3 id="linkEditModalTitle">Add / edit link</h3></div>
+      <button type="button" class="modal-close" id="linkEditModalClose" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <label class="mform-field">Title<input type="text" id="le-title" placeholder="e.g. PDF Tools"></label>
+      <label class="mform-field">Description<textarea id="le-desc" rows="2" placeholder="What this link/tool does"></textarea></label>
+      <label class="mform-field">URL<input type="text" id="le-url" placeholder="https://…"></label>
+      <div class="mform-grid2">
+        <label class="mform-field">Badge initials (max 4 letters)<input type="text" id="le-init" maxlength="4" placeholder="PDF"></label>
+        <div class="mform-field">Colour
+          <div class="mform-colors" id="le-color-picker">
+            <div class="mform-color-opt" data-color="navy" style="background:var(--navy)"></div>
+            <div class="mform-color-opt" data-color="saffron" style="background:var(--saffron)"></div>
+            <div class="mform-color-opt" data-color="teal" style="background:var(--teal)"></div>
+          </div>
+        </div>
+      </div>
+      <label class="toggle-switch"><input type="checkbox" id="le-enabled" checked><span class="track"></span> Show on homepage</label>
+      <button type="button" class="btn btn-primary btn-block" id="applyLinkBtn" style="margin-top:18px">Save link</button>
+      <div class="form-msg" id="linkEditMsg"></div>
+    </div>
+  </div>
+</div>
+
 <script src="js/app.js"></script>
+<script src="services/manifest.js"></script>
+<script src="js/service-config-loader.js"></script>
 <script src="js/admin.js"></script>
 </body>
 </html>
