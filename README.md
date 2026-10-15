@@ -1,5 +1,5 @@
 # Knowledge World Online — CSC Website
-
+https://knowledgeworld1.netlify.app/
 A complete front-end website for a Common Service Center (CSC) / cyber cafe named
 **Knowledge World Online**, based in Palitana, Gujarat.
 
